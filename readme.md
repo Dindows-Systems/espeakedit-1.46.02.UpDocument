@@ -1,11 +1,15 @@
-ESPEAKEDIT
+# espeakedit
 
-This is the initial sourceforge release of the espeakedit program.  It is used to prepare and compile phoneme data for the eSpeak speech synthesier.  See  docs/editor.html
+espeakedit is a GUI frontend which allows one to prepare and compile phoneme data for the [eSpeak][esp] speech synthesizer.
 
-In addition to its own functions, espeakedit is compiled including the source files from the  speak  program.  So it uses the same synthesis routines when it produced sound from phoneme data.
+Do be careful that the versions of dictionary data produced by espeakedit and consumed by espeak are compatible.
 
-Sometimes I change the format of the compiled phoneme or dictionary data that espeakedit produces and that speak uses.  So it's important to have compatible versions of the two programs.
+Pointer to `docs/editor.html`?
 
+Note: This was cloned off [Dashboard-X][dbx] who had a version of espeakedit tagged 1.46.02. The source code was taken off the initial sourceforge release of the espeakedit program. 
+
+[dbx]: https://github.com/Dashboard-X/espeakedit-1.46.02
+[esp]: http://espeak.sourceforge.net/
 
 DEPENDENCIES
 
