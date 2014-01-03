@@ -1,59 +1,70 @@
 # espeakedit
 
-espeakedit is a GUI frontend which allows one to prepare and compile phoneme data for the [eSpeak][esp] speech synthesizer.
+espeakedit is a GUI frontend which allows one to prepare and compile phoneme
+data for the [eSpeak][esp] speech synthesizer.
 
-Do be careful that the versions of dictionary data produced by espeakedit and consumed by espeak are compatible.
+Do be careful that the versions of dictionary data produced by espeakedit and
+consumed by espeak are compatible.
 
-Pointer to `docs/editor.html`?
+Note: This was cloned off [Dashboard-X][dbx] who had a version of espeakedit
+tagged 1.46.02. The source code was taken off the initial sourceforge release
+of the espeakedit program. 
 
-Note: This was cloned off [Dashboard-X][dbx] who had a version of espeakedit tagged 1.46.02. The source code was taken off the initial sourceforge release of the espeakedit program. 
+## Dependencies 
+
+`espeakedit` has a GUI built using [version 2.6][wxw] of the wxWidgets library
+for GTK.
+
+On Ubuntu 12.04.2 LTS "Precise Pangolin", it requires the following packages
+to compile:
+
+   * libwxgtk2.6-dev
+   * libportaudio-dev
+   * libwxgtk2.6-0
+   * libportaudio0
+   * sox
+
+The last three are enough to run a precompiled `espeakedit` binary.
+
+Note: The binary has been compiled to use V18 of the PortAudio library. If 
+you have V19 you will need to recompile espeakedit. First copy `portaudio19.h`
+to replace the original `portaudio.h` file in the `src` directory.
+
+## Compiling
+
+I have now included a Makefile in the src directory, so it should compile, if
+the wxWidgets include files are present, by using:
+
+    make
+
+## Documentation
+
+Not much yet.  `docs/editor.html` is a quick run through of the main functions. 
+`docs/editor-if.html` gives some details of the user interface.
+
+## Data
+
+Directory `phsource` contains the master phonemes file `phonemes`, additional
+phoneme files for various languages, and all the sound files needed to compile
+the phoneme data into `espeak-data/phondata`, `phontab`, `phonindex`.
+
+## Praat (comments presumed to be from [Dashboard-X][dbx])
+
+I use [`praat`][pra] to view and analyse speech output, either sound recordings,
+or output from the eSpeak synthesizer.
+
+I made a modification to Praat to add a function to analyse a sample of speech
+and produce a file containing sequence of time-slice spectra which you can load
+into `espeakedit` to display and use as a basis for matching or creating vowel
+and other voiced sounds.  Details of the modification are in the directory `praat-mod`.
+
+Unfortunately I am currently unable to run praat on my computer, even an unmodified
+copy.  It compiles OK, but won't run (gets stuck with 100% CPU usage without 
+displaying any GUI).  I don't know why this is.
+
+I have an old binary (build before I last upgraded by Linux) and that runs OK.
 
 [dbx]: https://github.com/Dashboard-X/espeakedit-1.46.02
 [esp]: http://espeak.sourceforge.net/
-
-DEPENDENCIES
-
-espeakedit  has a GUI by using the wxWidgets library (wxGTK version 2.6) (www.wxwidgets.org).
-
-It needs the following packages (these are the names from the Ubuntu "Dapper" repository):
-
-To run:
-   libwxgtk2.6-0
-   libportaudio0
-   sox
-
-To compile, it also needs:
-   libwxgtk2.6-dev
-   libportaudio-dev
-
-The binary has been compiled to use V18 of the PortAudio library.  If you have V19 you will need to recompile espeakedit, after copying  portaudio19.h  to replace the original  portaudio.h  file in the src directory.
-
-
-COMPILING
-
-I have now included a Makefile in the src directory, so it should compile, if
-the wxWigets include files (from the libwxgtk2.6-dev package) are present, by using:
-  make
-
-
-DOCUMENTATION
-
-Not much yet.  docs/editor.html  is a quick run through of the main functions.  docs/editor-if.html  gives some details of the user interface.
-
-If you want to use it to add or improve phoneme data, and you have questions, please email me.
-
-
-DATA
-
-Directory "phsource" contains the master phonemes file: "phonemes", the additional phoneme files for various languages, and all the sound files needed to compile the phoneme data into  espeak-dara/phondata, phontab, phonindex.
-
-
-PRAAT
-
-I use praat (from www.praat.org) to view and analyse speech output, either sound recordings, or output from the eSpeak synthesizer.
-
-I make a modification to Praat to add a function to analyse a sample of speech and produce a file containing sequence of time-slice spectra which you can load into espeakedit to display and use as a basic for matching or creating vowel and other voiced sounds.  Detials of the modification are in the directory  praat-mod.
-
-Unfortunately I am currently unable to compile and run praat on my computer, even an unmodified copy.  It compiles OK, but won't run (gets stuck with 100% CPU usage without displaying any GUI).  I don't know why this is.
-
-I have an old binary (build before I last upgraded by Linux) and that runs OK.
+[wxw]: http://www.wxwidgets.org/
+[pra]: http://www.praat.org/
