@@ -1,3 +1,7 @@
+# ignore the binaries produced by make
+espeakedit
+*.o
+
 #################
 ## Eclipse
 #################
